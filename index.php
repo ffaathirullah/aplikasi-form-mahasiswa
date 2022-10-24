@@ -58,10 +58,54 @@
           <?= $data["prodi"] ?>
           </td>
           <td>
-            <a href="#" class="btn btn-warning"> Ubah </a>
+            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"> Ubah </a>
             <a href="#" class="btn btn-danger"> Hapus </a>
           </td>
         </tr>
+
+
+  <div class="modal fade" id="modalUbah<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Mahasiswa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" action="aksiCrud.php">
+      <div class="modal-body">
+      <input type="hidden"  name="id_mhs" value="<?= $data["id_mhs"] ?>">
+             <div class="mb-3">
+              <label class="form-label">Nim</label>
+              <input type="text" class="form-control" placeholder="Masukan Nim" name="tnim" value="<?= $data["nim"] ?>">
+            </div>
+             <div class="mb-3">
+              <label  class="form-label">Nama</label>
+              <input type="text" class="form-control" placeholder="Masukan Nama" name="tnama" value="<?= $data["nama"] ?>">
+            </div>
+             <div class="mb-3">
+              <label  class="form-label">Alamat</label>
+              <textarea class="form-control" placeholder="Masukan Alamat" rows="3" name="talamat" ><?= $data['alamat'] ?></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Prodi</label>
+              <select class="form-select" name="tprodi" >
+                <option value="<?= $data['prodi'] ?>"><?= $data['prodi'] ?></option>
+                <option value="S1 - Management Informatika">S1 - Management Informatika</option>
+                <option value="S1 - Teknik Informatika">S1 - Teknik Informatika</option>
+                <option value="S1 - Sisfo">S1 - Sisfo</option>
+              </select>
+            </div>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
         <?php 
           endwhile;
         ?>
@@ -78,20 +122,20 @@
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Mahasiswa</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form method="$_POST" action="aksiCrud.php">
+      <form method="POST" action="aksiCrud.php">
       <div class="modal-body">
         
              <div class="mb-3">
               <label class="form-label">Nim</label>
-              <input type="text" class="form-control" placeholder="Masukan Nim">
+              <input type="text" class="form-control" placeholder="Masukan Nim" name="tnim">
             </div>
              <div class="mb-3">
               <label  class="form-label">Nama</label>
-              <input type="text" class="form-control" placeholder="Masukan Nama">
+              <input type="text" class="form-control" placeholder="Masukan Nama" name="tnama">
             </div>
              <div class="mb-3">
               <label  class="form-label">Alamat</label>
-              <textarea class="form-control" placeholder="Masukan Alamat" rows="3"></textarea>
+              <textarea class="form-control" placeholder="Masukan Alamat" rows="3" name="talamat"></textarea>
             </div>
             <div class="mb-3">
               <label class="form-label">Prodi</label>
@@ -104,7 +148,7 @@
       
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="bSimpan">Simpan</button>
+        <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
       </div>
 
@@ -113,24 +157,8 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 
 
 
