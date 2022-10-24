@@ -56,4 +56,26 @@ else {
     echo "No, mail is not set";
 }
 
+
+if(isset($_POST['bHapus'])) {
+
+    $hapus = mysqli_query($koneksi, "DELETE FROM tmhs WHERE id_mhs = '$_POST[id_mhs]'");
+
+        if ($hapus) {
+            echo "<script> 
+            alert('Hapus data berhasil');
+            document.location='index.php';
+            </script>";
+        }else{
+            echo "<script> 
+            alert('Hapus data gagal');
+            document.location='index.php';
+            </script>";
+        }
+}
+
+else {  
+    echo "No, mail is not set";
+}
+
 ?>

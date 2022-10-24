@@ -59,7 +59,7 @@
           </td>
           <td>
             <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"> Ubah </a>
-            <a href="#" class="btn btn-danger"> Hapus </a>
+            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"> Hapus </a>
           </td>
         </tr>
 
@@ -72,8 +72,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form method="POST" action="aksiCrud.php">
-      <div class="modal-body">
       <input type="hidden"  name="id_mhs" value="<?= $data["id_mhs"] ?>">
+      <div class="modal-body">
              <div class="mb-3">
               <label class="form-label">Nim</label>
               <input type="text" class="form-control" placeholder="Masukan Nim" name="tnim" value="<?= $data["nim"] ?>">
@@ -99,6 +99,34 @@
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Mahasiswa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" action="aksiCrud.php">
+      <input type="hidden"  name="id_mhs" value="<?= $data["id_mhs"] ?>">
+      <div class="modal-body">
+      
+        <h5 class="text-center">Apakah Anda Yakin Akan Menhapus Data Ini? <br>
+          <span class="text-danger mt-1">  <?= $data["nim"] ?> -   <?= $data["nama"] ?></span>
+        </h5> 
+      
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="bHapus">Hapus</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
       </div>
 
